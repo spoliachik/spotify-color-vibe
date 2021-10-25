@@ -38,7 +38,7 @@ app.post('/login', (req, res) => {
     
     //retrieve an access token
     spotifyApi.authorizationCodeGrant(code).then((data) => {
-        console.log(`The new access token is... ${data.body.access_token}`)
+        // console.log(`The new access token is... ${data.body.access_token}`)
         //returning the user's AccessToken in the json format
         res.json({
             accessToken: data.body.access_token,

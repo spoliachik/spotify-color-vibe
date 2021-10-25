@@ -8,7 +8,7 @@ import ColorTile from './ColorTile';
 const credentials = {
     clientId: '94606aa37e9448409ea9bb78cc18c3e2',
     clientSecret: '3abe07cb41144937976ee19837b26f13',
-    redirectUri: 'http://localhost:3000/'
+    redirectUri: 'https://master.dy3nys5bnlcvv.amplifyapp.com/'
 }
 
 const SongSearchForm = (code) => {
