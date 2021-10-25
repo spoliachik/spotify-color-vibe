@@ -1,0 +1,25 @@
+.colorTileSection {
+    display:inline;
+}
+
+.colorTile {
+    vertical-align: center;
+    width: 300px;
+    margin: 10% 10% 10% 10%;
+    height: 300px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.songInfo {
+    width: 100%;
+    float: center;
+    text-align: center;
+}
+
+.songMetrics {
+    width: 100%;
+    float: center;
+    text-align: center;
+}
