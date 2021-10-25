@@ -1,0 +1,9 @@
+{
+  "function": {
+    "spotifyLogin": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}
