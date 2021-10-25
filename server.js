@@ -1,5 +1,7 @@
 // var http = require('http');
 
+require('dotenv').config();
+
 var express = require('express');
 const cors = require('cors');
 const spotifyWebApi = require('spotify-web-api-node');
@@ -10,9 +12,12 @@ const port = 8000
 app.use(cors()) // to handle cross-origin requests
 app.use(express.json()); // to parse JSON bodies
 
+var clientId = process.env.CLIENT_ID;
+var clientSecret = process.env.CLIENT_SECRET;
+
 const credentials = {
-    clientId: '94606aa37e9448409ea9bb78cc18c3e2',
-    clientSecret: '3abe07cb41144937976ee19837b26f13',
+    clientId: clientId,
+    clientSecret: clientSecret,
     redirectUri: 'http://localhost:3000/'
 }
 
