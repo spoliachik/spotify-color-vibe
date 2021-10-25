@@ -96,8 +96,21 @@ var express = require('express');
 const cors = require('cors');
 const spotifyWebApi = require('spotify-web-api-node');
 
-var app = express();
-const port = 8000
+var express = require('express')
+var bodyParser = require('body-parser')
+var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+
+// declare a new express app
+var app = express()
+app.use(bodyParser.json())
+app.use(awsServerlessExpressMiddleware.eventContext())
+
+// Enable CORS for all methods
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "*")
+  next()
+});
 
 app.use(cors()) // to handle cross-origin requests
 app.use(express.json()); // to parse JSON bodies
@@ -108,7 +121,7 @@ var clientSecret = process.env.CLIENT_SECRET;
 const credentials = {
     clientId: clientId,
     clientSecret: clientSecret,
-    redirectUri: 'http://localhost:3000/'
+    redirectUri: 'https://master.d139yngib8df9c.amplifyapp.com/'
 }
 
 app.get('/', (req, res) => {

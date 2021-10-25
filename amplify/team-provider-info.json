@@ -15,7 +15,7 @@
       "function": {
         "spotifyLogin": {
           "deploymentBucketName": "amplify-amplify4c3618a597c24-staging-192702-deployment",
-          "s3Key": "amplify-builds/spotifyLogin-68654748394675454756-build.zip"
+          "s3Key": "amplify-builds/spotifyLogin-6243692b6e5758377041-build.zip"
         }
       }
     }

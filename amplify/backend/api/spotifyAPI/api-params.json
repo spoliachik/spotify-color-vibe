@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/login",
+      "lambdaFunction": "spotifyLogin",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/login"
+    }
+  ],
+  "resourceName": "spotifyAPI",
+  "apiName": "spotifyAPI",
+  "functionArns": [
+    {
+      "lambdaFunction": "spotifyLogin"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-amplify4c3618a597c24-staging-192702-authRole",
+    "unAuthRoleName": "amplify-amplify4c3618a597c24-staging-192702-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "spotifyLogin",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}
