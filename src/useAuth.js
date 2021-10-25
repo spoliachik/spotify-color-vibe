@@ -8,7 +8,7 @@ export default function useAuth(givenCode) {
 
     useEffect(() => {
         axios
-            .post("http://localhost:8000/login", { code })
+            .post("https://vl7au1ue2f.execute-api.us-east-1.amazonaws.com/staging/spotifyLogin-staging/login", { code })
             .then((response) => {
                 console.log("successfully in useAuth .then")
                 //if success then cut the code string from the URL and execute next thing
@@ -20,7 +20,7 @@ export default function useAuth(givenCode) {
             //if fail, redirect to home page (Login page)
             console.log("catch")
             console.log(err);
-            window.location = "/";
+            // window.location = "/";
         });
         // try {
         //     const response = API.post('spotifyAPI', '/spotifyLogin', { code });
