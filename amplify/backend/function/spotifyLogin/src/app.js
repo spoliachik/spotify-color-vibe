@@ -124,10 +124,6 @@ const credentials = {
     redirectUri: 'https://master.d139yngib8df9c.amplifyapp.com/'
 }
 
-app.get('/', (req, res) => {
-    console.log("Hello World!")
-});
-
 app.post('/login', (req, res) => {
     console.log('in login...');
     console.log(`the code is: ${req.body.code}`);
