@@ -32,11 +32,6 @@
 //  * Example get method *
 //  **********************/
 
-// app.get('/login', function(req, res) {
-//   // Add your code here
-//   res.json({success: 'get call succeed!', url: req.url});
-// });
-
 // app.get('/login/*', function(req, res) {
 //   // Add your code here
 //   res.json({success: 'get call succeed!', url: req.url});
@@ -90,13 +85,9 @@
 
 // var http = require('http');
 
-require('dotenv').config();
-
 var express = require('express');
 // const cors = require('cors');
 const spotifyWebApi = require('spotify-web-api-node');
-
-var express = require('express')
 // var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 
@@ -126,7 +117,6 @@ const credentials = {
 }
 
 app.post('/login', function(req, res) {
-
     console.log('in login...');
     console.log(`the code is: ${req.body.code}`);
     //setup
@@ -134,7 +124,7 @@ app.post('/login', function(req, res) {
 
     //get the "code" value passed from the client side and get the user's accessToken from the spotify api
     const code = req.body.code
-    // console.log(code);
+    console.log(code);
     // console.log(req.body)
     
     //retrieve an access token
@@ -142,19 +132,27 @@ app.post('/login', function(req, res) {
         // console.log(`The new access token is... ${data.body.access_token}`)
         //returning the user's AccessToken in the json format
         res.json({
-            accessToken: data.body.access_token,
+            body: data
         })
-        res.header("Access-Control-Allow-Origin", "https://master.d139yngib8df9c.amplifyapp.com")
-        res.header("Access-Control-Allow-Methods", "*")
-        res.header("Access-Control-Allow-Headers", "*")
+        // res.header("Access-Control-Allow-Origin", "https://master.d139yngib8df9c.amplifyapp.com")
+        // res.header("Access-Control-Allow-Methods", "*")
+        // res.header("Access-Control-Allow-Headers", "*")
     })
     .catch((err) => {
         console.log(`Happening in .authorizationCodeGrant: ${err}`);
         res.sendStatus(400);
+        res.json({
+          error: err
+        })
     })
 });
 
-app.listen(3000, () => {
+app.get('/login', function(req, res) {
+  // Add your code here
+  res.json({success: 'get call succeed!', url: req.url});
+});
+
+app.listen(2000, () => {
     console.log(`App listening!`)
 })
 
