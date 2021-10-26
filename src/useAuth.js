@@ -8,7 +8,7 @@ export default function useAuth(givenCode) {
 
     useEffect(() => {
         axios
-            .post("https://vl7au1ue2f.execute-api.us-east-1.amazonaws.com/staging/spotifyLogin-staging/login", { code })
+            .post("https://vl7au1ue2f.execute-api.us-east-1.amazonaws.com/staging/login", { code })
             .then((response) => {
                 console.log("successfully in useAuth .then")
                 //if success then cut the code string from the URL and execute next thing

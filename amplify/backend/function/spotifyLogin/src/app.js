@@ -93,26 +93,27 @@
 require('dotenv').config();
 
 var express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const spotifyWebApi = require('spotify-web-api-node');
 
 var express = require('express')
-var bodyParser = require('body-parser')
+// var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 
 // declare a new express app
 var app = express()
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
 // Enable CORS for all methods
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods", "*")
   res.header("Access-Control-Allow-Headers", "*")
   next()
 });
 
-app.use(cors()) // to handle cross-origin requests
+// app.use(cors()) // to handle cross-origin requests
 app.use(express.json()); // to parse JSON bodies
 
 var clientId = process.env.CLIENT_ID;
@@ -124,7 +125,8 @@ const credentials = {
     redirectUri: 'https://master.d139yngib8df9c.amplifyapp.com/'
 }
 
-app.post('/login', (req, res) => {
+app.post('/login', function(req, res) {
+
     console.log('in login...');
     console.log(`the code is: ${req.body.code}`);
     //setup
@@ -142,6 +144,9 @@ app.post('/login', (req, res) => {
         res.json({
             accessToken: data.body.access_token,
         })
+        res.header("Access-Control-Allow-Origin", "https://master.d139yngib8df9c.amplifyapp.com")
+        res.header("Access-Control-Allow-Methods", "*")
+        res.header("Access-Control-Allow-Headers", "*")
     })
     .catch((err) => {
         console.log(`Happening in .authorizationCodeGrant: ${err}`);
