@@ -13,7 +13,7 @@ function App() {
   console.log(code);
   return (
     <div className="app">
-      {code ? <SongSearch code={code}/> : <Login />}
+      <SongSearch />
     </div>
   );
 }
