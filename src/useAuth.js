@@ -19,7 +19,7 @@ export default function useAuth(givenCode) {
             //if fail, redirect to home page (Login page)
             console.log("catch")
             console.log(err);
-            window.location = "/";
+            // window.location = "/";
         });
     }, [code]);
 
