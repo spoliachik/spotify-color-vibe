@@ -131,8 +131,13 @@ app.post('/login', function(req, res) {
     spotifyApi.authorizationCodeGrant(code).then((data) => {
         // console.log(`The new access token is... ${data.body.access_token}`)
         //returning the user's AccessToken in the json format
+
+        console.log(data);
+
         res.json({
-            body: data
+          success: 'post call succeeded!',
+          body: data,
+          url: req.url
         })
         // res.header("Access-Control-Allow-Origin", "https://master.d139yngib8df9c.amplifyapp.com")
         // res.header("Access-Control-Allow-Methods", "*")

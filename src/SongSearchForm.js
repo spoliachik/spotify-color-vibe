@@ -12,6 +12,7 @@ const credentials = {
 }
 
 const SongSearchForm = (code) => {
+
     const authCode = useAuth(code);
     const spotifyApi = new SpotifyWebApi(credentials);
     spotifyApi.setAccessToken(authCode);
@@ -50,7 +51,6 @@ const SongSearchForm = (code) => {
                 console.log(err);
             }
         }
-
     });
 
     return (
