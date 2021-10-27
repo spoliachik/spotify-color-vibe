@@ -5,7 +5,7 @@ export default function useAuth(givenCode) {
     const [accessToken, setAccessToken] = useState();
     const code = (givenCode.code.code)
 
-    useEffect(() => {
+    // useEffect(() => {
         axios
             .post("https://vl7au1ue2f.execute-api.us-east-1.amazonaws.com/staging/login", { code })
             .then((response) => {
@@ -36,7 +36,7 @@ export default function useAuth(givenCode) {
         //     console.log(err);
         //     window.location = "/";
         // }
-    }, [code]);
+    // }, [code]);
 
     return accessToken;
 }
