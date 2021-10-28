@@ -6,11 +6,12 @@ import './SongSearchForm.css';
 import ColorTile from './ColorTile';
 import axios from 'axios';
 import qs from 'qs';
+import getToken from './spotify';
+import { clientId, clientSecret } from './secrets';
 
-console.log(process.env);
 const credentials = {
-    clientId: "94606aa37e9448409ea9bb78cc18c3e2",
-    clientSecret: "3abe07cb41144937976ee19837b26f13",
+    clientId: clientId,
+    clientSecret: clientSecret,
     redirectUri: 'http://localhost:3000/'
 }
 console.log(credentials);
@@ -18,33 +19,14 @@ console.log(credentials);
 const SongSearchForm = () => {
 
     //can i do authentication from here? do I need authentication?? 
-
-    const getAuth = async () => {
-        var authOptions = {
-            url: 'https://accounts.spotify.com/api/token',
-            headers: {
-              'Authorization': 'Basic ' + (Buffer(credentials.clientId + ':' + credentials.clientSecret).toString('base64'))
-            },
-            form: {
-              grant_type: 'client_credentials'
-            },
-            json: true
-          };
-          
-        try {
-            await axios.post(authOptions, function(error, response, body) {
-                if (!error && response.statusCode === 200) {
-                var token = body.access_token;
-                console.log(token);
-                authCode = token;
-                }
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    const authCode = getAuth();
+    let spotifyApi = new SpotifyWebApi(credentials);
+    let authCode;
+    getToken()
+        .then((result) => {
+            console.log(result.data);
+            authCode = result.data.access_token;
+            spotifyApi.setAccessToken(authCode);
+        });
 
     let [songName, setSongName] = useState("");
     let [tracks, setTracks] = useState([]);
@@ -59,36 +41,7 @@ const SongSearchForm = () => {
             return;
         } else {
             try {
-
-
-                // const api_url = `https://api.spotify.com/v1/audio-features/${track_id}`;
-                // //console.log(api_url);
-                // try{
-                //   const response = await axios.get(api_url, {
-                //     headers: {
-                //       'Authorization': `Bearer ${access_token}`
-                //     }
-                //   });
-                //   //console.log(response.data);
-                //   return response.data;
-                // }catch(error){
-                //   console.log(error);
-                // } 
-
-                const params = {
-                    q: songName,
-                    type: "track",
-                    limit: 10,
-                };
-                const headers = {
-                    'Authorization': `Bearer ${authCode}`
-                }
-                const api_url = `https://api.spotify.com/v1/search/`;
-
-                const results = await axios.get(api_url, {params: params}, {headers: headers});
-                console.log(results);
-                // let results = await spotifyApi.searchTracks(songName, {params});
-
+                let results = await spotifyApi.searchTracks(songName, {limit: 10});
 
                 setTracks(results.body.tracks.items);
                 let tempSongDataArray = [];
@@ -97,6 +50,7 @@ const SongSearchForm = () => {
                         <SongDataModule 
                             key={i} 
                             data={tracks[i]}
+                            api={spotifyApi}
                             //need to pass authCode probably
                             setSongClicked={setSongClicked}
                             setSongColorData={setSongColorData}

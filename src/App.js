@@ -7,10 +7,8 @@ import useAuth from "./useAuth";
 
 // TO START SERVER RUN node server.js in separate terminal, then npm run start to start react app
 
-const code = new URLSearchParams(window.location.search).get('code');
 
 function App() {
-  console.log(code);
   return (
     <div className="app">
       <SongSearch />
