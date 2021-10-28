@@ -5,8 +5,8 @@ import querystring from 'querystring';
 
 console.log(process.env);
 
-const client_id = process.env.CLIENT_ID;
-const client_secret = process.env.CLIENT_SECRET;
+let client_id = process.env.CLIENT_ID;
+let client_secret = process.env.CLIENT_SECRET;
 var response_type = 'code';
 var redirect_uri = 'http://localhost:3000/';
 var url = 'https://accounts.spotify.com'

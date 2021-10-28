@@ -8,7 +8,7 @@ import axios from 'axios';
 import qs from 'qs';
 import getToken from './spotify';
 
-const credentials = {
+let credentials = {
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     redirectUri: 'http://localhost:3000/'
