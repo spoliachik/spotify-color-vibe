@@ -7,7 +7,6 @@ import ColorTile from './ColorTile';
 import axios from 'axios';
 import qs from 'qs';
 import getToken from './spotify';
-import { clientId, clientSecret } from './secrets';
 
 const credentials = {
     clientId: process.env.CLIENT_ID,

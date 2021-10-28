@@ -1,5 +1,4 @@
 import SpotifyWebApi from "spotify-web-api-node";
-import { clientId, clientSecret } from './secrets';
 import axios from 'axios';
 import querystring from 'querystring';
 
