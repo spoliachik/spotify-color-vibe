@@ -1,12 +1,12 @@
 import SpotifyWebApi from "spotify-web-api-node";
 import axios from 'axios';
 import querystring from 'querystring';
-
+require('dotenv').config();
 
 console.log(process.env);
 
-let client_id = process.env.CLIENT_ID;
-let client_secret = process.env.CLIENT_SECRET;
+let client_id = process.env.REACT_APP_CLIENT_ID;
+let client_secret = process.env.REACT_APP_CLIENT_SECRET;
 var response_type = 'code';
 var redirect_uri = 'http://localhost:3000/';
 var url = 'https://accounts.spotify.com'

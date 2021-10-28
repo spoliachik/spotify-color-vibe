@@ -7,10 +7,11 @@ import ColorTile from './ColorTile';
 import axios from 'axios';
 import qs from 'qs';
 import getToken from './spotify';
+require("dotenv").config();
 
 let credentials = {
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
+    clientId: process.env.REACT_APP_CLIENT_ID,
+    clientSecret: process.env.REACT_APP_CLIENT_SECRET,
     redirectUri: 'http://localhost:3000/'
 }
 console.log(credentials);
