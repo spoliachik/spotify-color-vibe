@@ -10,8 +10,8 @@ import getToken from './spotify';
 import { clientId, clientSecret } from './secrets';
 
 const credentials = {
-    clientId: clientId,
-    clientSecret: clientSecret,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
     redirectUri: 'http://localhost:3000/'
 }
 console.log(credentials);

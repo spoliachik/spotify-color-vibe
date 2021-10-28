@@ -4,8 +4,10 @@ import axios from 'axios';
 import querystring from 'querystring';
 
 
-var client_id = clientId;
-var client_secret = clientSecret;
+console.log(process.env.CLIENT_SECRET);
+
+var client_id = process.env.CLIENT_ID;
+var client_secret = process.env.CLIENT_SECRET;
 var response_type = 'code';
 var redirect_uri = 'http://localhost:3000/';
 var url = 'https://accounts.spotify.com'
