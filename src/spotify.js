@@ -3,10 +3,10 @@ import axios from 'axios';
 import querystring from 'querystring';
 
 
-console.log(process.env.CLIENT_SECRET);
+console.log(process.env);
 
-var client_id = process.env.CLIENT_ID;
-var client_secret = process.env.CLIENT_SECRET;
+const client_id = process.env.CLIENT_ID;
+const client_secret = process.env.CLIENT_SECRET;
 var response_type = 'code';
 var redirect_uri = 'http://localhost:3000/';
 var url = 'https://accounts.spotify.com'
