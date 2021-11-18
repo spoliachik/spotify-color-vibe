@@ -4,9 +4,9 @@
 
 .colorTile {
     vertical-align: center;
-    width: 300px;
+    width: 35vw;
+    height: 35vw;
     margin: 10% 10% 10% 10%;
-    height: 300px;
     border-radius: 30px;
     margin-left: auto;
     margin-right: auto;

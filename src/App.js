@@ -1,7 +1,5 @@
 import './App.css';
-import Login from "./Login";
 import SongSearch from "./SongSearch";
-import useAuth from "./useAuth";
 // import makeSpotifyApi from './spotify';
 
 

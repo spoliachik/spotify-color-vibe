@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node';
-import useAuth from './useAuth';
 import SongDataModule from './SongDataModule';
 import './SongSearchForm.css';
 import ColorTile from './ColorTile';
-import axios from 'axios';
-import qs from 'qs';
 import getToken from './spotify';
 require("dotenv").config();
 

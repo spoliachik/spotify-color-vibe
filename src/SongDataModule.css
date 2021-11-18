@@ -1,37 +1,37 @@
 .songTile {
-    width: 90%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 8px;
-    padding-right: 8px;
+    width: 85%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-left: 2%;
+    padding-right: 2%;
     display: flex;
     background-color:whitesmoke;
-    margin: 20px;
+    margin: 2%;
     border-radius: 25px;
     cursor: pointer;
 }
 
 .songImageDiv {
-    width: 50%;
+    max-width: 50%;
     float: left;
     text-align: center;
 }
 
 .songImage {
-    width: 60%;
+    width: 80%;
 }
 
 .songInfo {
-    width: 50%;
+    width: 20%;
     float: right;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 h3 {
-    font-size: 15px;
+    font-size: 0.75em;
 }
 
 h1 {
-    font-size: 25px;
+    font-size: 1.2em;
 }
